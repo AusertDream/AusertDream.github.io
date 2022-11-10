@@ -18,7 +18,7 @@
 <meta property="og:description" content="今天学了前缀和和差分，及其数组。前缀和不多说了，比较好理解，主要还是差分，这个比较抽象">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-09T14:02:19.000Z">
-<meta property="article:modified_time" content="2022-11-09T14:34:34.403Z">
+<meta property="article:modified_time" content="2022-11-09T14:50:04.796Z">
 <meta property="article:author" content="Ausert">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="ACM">
@@ -181,7 +181,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">247字</span>
+      <span class="post-count">386字</span>
     </span>
   </span>
 
@@ -209,6 +209,12 @@
 <hr>
 <h2 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h2><p>至于差分。emmmm<br><br>差分数组不需要构建，~~~当然也可以构建~~~<br><br>二位差分同理<br></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int a[N],B[N]; //a为原来的数组，b为差分数组</span><br><span class="line">//执行差分的插入操作，即在l和r中间的数字都加上c。</span><br><span class="line">void insert(int l,int r,int c)&#123;</span><br><span class="line">    b[l]+=c;</span><br><span class="line">    b[r+1]-=c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void solve()&#123;</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        int t;</span><br><span class="line">        cin&gt;&gt;t;</span><br><span class="line">        insert(i,i,t);//这里相当于不用数组去存原来那个数组，原来那个数组就相当于对i和i中间的数字加上a[i]，也就是差分的思想。</span><br><span class="line">    &#125;</span><br><span class="line">    然后就是for循环，进行m次询问，同样操作。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后二维差分的话，要注意一个点，就是你在差分数组的第ij个值的地方加了个c，<br><br>那么在行&gt;=i,列&gt;=j的后面所有数据<br><br>都加上了个c，这里的话要考虑一个容斥原理。<br><br>下面为insert代码：<br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//b数组为差分数组，c为要加的值</span><br><span class="line">void insert(int x1, int y1, int x2, int y2, int c) &#123;</span><br><span class="line">    b[x1][y1] += c;</span><br><span class="line">    b[x1][y2 + 1] -= c;</span><br><span class="line">    b[x2 + 1][y1] -= c;</span><br><span class="line">    b[x2 + 1][y2 + 1] += c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>记住，差分数组不需要自己想着构建awa<br><br>That’s all<br><br>bye~</p>
+
     
 
     
