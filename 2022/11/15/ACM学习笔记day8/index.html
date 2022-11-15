@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>Tag: 网站部署 | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈) | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="这是我的个人博客丫">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ausert&#39;s blog">
-<meta property="og:url" content="http://ausertdream.github.io/tags/%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2/index.html">
+  <meta name="description" content="wdnmd,受不了了，一拳把地球打爆。今天的内容原本应该是11月13号的因为当晚是有个讲座要听，没空写博客想着明天写，结果昨天忙的要死，今天还是忙的要死今天晚上终于稍微有点空了，赶紧把博客给补了，顺便也隔了几天复习一下东西。今天主要学的是 模拟栈，表达式求值，模拟队列和单调栈。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)">
+<meta property="og:url" content="http://ausertdream.github.io/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="这是我的个人博客丫">
+<meta property="og:description" content="wdnmd,受不了了，一拳把地球打爆。今天的内容原本应该是11月13号的因为当晚是有个讲座要听，没空写博客想着明天写，结果昨天忙的要死，今天还是忙的要死今天晚上终于稍微有点空了，赶紧把博客给补了，顺便也隔了几天复习一下东西。今天主要学的是 模拟栈，表达式求值，模拟队列和单调栈。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-15T13:52:59.000Z">
+<meta property="article:modified_time" content="2022-11-15T14:01:51.596Z">
 <meta property="article:author" content="Ausert">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="打卡">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -146,41 +153,100 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ACM学习笔记day8" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/07/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%971/" class="archive-article-date">
-        <time datetime="2022-11-07T02:25:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-07</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/07/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%971/" target="_blank">网站开发日志1</a>
   
+    <h1 class="article-title" itemprop="name">
+      ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+<a href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" class="archive-article-date">
+        <time datetime="2022-11-15T13:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>wdnmd,受不了了，一拳把地球打爆。今天的内容原本应该是11月13号的<br>因为当晚是有个讲座要听，没空写博客想着明天写，结果昨天忙的要死，今天还是忙的要死<br>今天晚上终于稍微有点空了，赶紧把博客给补了，顺便也隔了几天复习一下东西。<br>今天主要学的是 模拟栈，表达式求值，模拟队列和单调栈。</p>
+<span id="more"></span>
+
+<h2 id="模拟栈"><a href="#模拟栈" class="headerlink" title="模拟栈"></a>模拟栈</h2><hr>
+<p>顾名思义<br>用数组的方式去模拟栈这个数据结构<br>当然你也可以直接用STL里面的stack类<br>个人觉得还是用stack类舒服点（<br>可能是还没到时候吧。<br>angway，稍微说一下模拟的方式<br>老规矩，有一个idx指针，用来标志栈顶元素。<br>注意这里idx指向的意思和模拟链表不太一样。<br>然后随便写几个函数，用来表示pop和push，top就可以了。<br>这个不难。</p>
+<h2 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h2><hr>
+<p>这个东西，我写过数据结构实验<br>直接略过。</p>
+<h2 id="模拟队列"><a href="#模拟队列" class="headerlink" title="模拟队列"></a>模拟队列</h2><hr>
+<p>模拟的方式和模拟栈差不多，用到了两个指针<br>hh 和tt，hh初始化为0，tt初始化为-1<br>每push一个数据，tt++；<br>每pop一个数据，就hh–；<br>front函数就直接访问第一个数据也就是hh指向的数据<br>pop的时候别忘了，检查一下hh是不是&gt;=tt的就可以了，不然弹出了个寂寞<br><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/831/">acwing题目连接</a><br>这里我附上源码好了。<br>这是我的写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int myQueue[N], hh, tt = -1;</span><br><span class="line"></span><br><span class="line">void push(int x) &#123;</span><br><span class="line">	myQueue[++tt] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void pop() &#123;</span><br><span class="line">	hh++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int front() &#123;</span><br><span class="line">	return myQueue[hh];</span><br><span class="line">&#125;</span><br><span class="line">bool empty() &#123;</span><br><span class="line">	return hh &gt; tt;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int m;</span><br><span class="line">	cin &gt;&gt; m;</span><br><span class="line">	while (m--) &#123;</span><br><span class="line">		string op;</span><br><span class="line">		cin &gt;&gt; op;</span><br><span class="line">		if (op == &quot;push&quot;) &#123;</span><br><span class="line">			int x;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			push(x);</span><br><span class="line">		&#125;</span><br><span class="line">		else if (op == &quot;pop&quot;) &#123;</span><br><span class="line">			pop();</span><br><span class="line">		&#125;</span><br><span class="line">		else if (op == &quot;query&quot;) &#123;</span><br><span class="line">			cout &lt;&lt; front() &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (op == &quot;empty&quot;) &#123;</span><br><span class="line">			if (empty()) &#123;</span><br><span class="line">				cout &lt;&lt; &quot;YES&quot; &lt;&lt; endl;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><hr>
+<p>单调栈<br>说实话我感觉不像是一个数据结构<br>不如说这是一种算法思想<br>题目来源：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/832/">acwing链接</a><br>什么是单调栈捏<br>就是这个栈里面的元素，从栈低到栈顶的元素是升序排列的e.g<br>-—————————-<br>| 1 2 3 4 5 6 7  8 9 10<br>-—————————-<br>这就是就是单调栈<br>然后我们来看这道题目<br>给你一个长度为n的整数序列<br>输出每个数左边的第一个比他小的数<br>让我们思考一下暴力做法<br>i从头遍历到尾<br>然后j从i遍历到头，找到第一个比第i个小的，就break结束<br>毫无疑问，暴力做法的时间复杂度很高。<br>数据量一大就会TLE了<br>那我们来思考一下，这个算法究竟哪里时间复杂度高了<br>我们发现对于第i个数，第i-1个数如果比第i-2个数小的话，那其实<br>我们在找i-1个数前面比他小的数，这个第i-2个数已经比i-1来的大了，所以在后面要选到i-2也不可能，要选也要选i-1<br>综上，我们采用一个单调栈<br>对于第一个数据，前面都不可能有满足条件的，自然输出-1<br>然后把他存入stack中，然后对于第二个，和栈顶元素比较，如果栈顶元素比较大或者相等的，直接弹出<br>直到栈顶元素比它小了，才停止<br>然后输出栈顶元素<br>如此往复的进行<br>这样，栈中形成的数据关系，其实是单调递增的。<br>这也就是为什么成为单调栈的原因</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">const int N = 100010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	vector&lt;int&gt; a(n);</span><br><span class="line">	stack&lt;int&gt; work;</span><br><span class="line">	for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">		cin &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	work.push(a[0]);</span><br><span class="line">	cout &lt;&lt; -1 &lt;&lt; &#x27; &#x27;;</span><br><span class="line">	for (int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">		while (!work.empty() &amp;&amp; work.top() &gt;= a[i]) &#123;</span><br><span class="line">			work.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		if (work.empty()) &#123;</span><br><span class="line">			cout &lt;&lt; -1 &lt;&lt; &#x27; &#x27;;</span><br><span class="line">			work.push(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			cout &lt;&lt; work.top() &lt;&lt; &#x27; &#x27;;</span><br><span class="line">			work.push(a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>that’s all<br>bye~</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Ausert
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ausertdream.github.io/2022/11/15/ACM学习笔记day8/" title="ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)" target="_blank">http://ausertdream.github.io/2022/11/15/ACM学习笔记day8/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          网页作者：Ausert  主题作者：yilia
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,33 +256,125 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网站部署</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网站开发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网站维护</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day7(区间合并，静态单链表，静态双向链表)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -245,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
