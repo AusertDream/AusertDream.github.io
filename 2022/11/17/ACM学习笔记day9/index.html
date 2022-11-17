@@ -6,24 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>casualNotes | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day9(滑动窗口，双端队列) | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="2022年11月8日 晴 周二新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。说起来我今天的视频还没发幸亏之前屯了很多存货orz不然事情还要多。蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课呃呃呃，害，好烦QAQ。">
+  <meta name="description" content="今天学习的时间比较短，哦，确实也挺短的不过当时比较困，理解起来也很慢，所以今天的内容只有一个是滑动窗口和双端队列！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="casualNotes">
-<meta property="og:url" content="http://ausertdream.github.io/2022/11/08/casualNotes/index.html">
+<meta property="og:title" content="ACM学习笔记day9(滑动窗口，双端队列)">
+<meta property="og:url" content="http://ausertdream.github.io/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="2022年11月8日 晴 周二新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。说起来我今天的视频还没发幸亏之前屯了很多存货orz不然事情还要多。蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课呃呃呃，害，好烦QAQ。">
+<meta property="og:description" content="今天学习的时间比较短，哦，确实也挺短的不过当时比较困，理解起来也很慢，所以今天的内容只有一个是滑动窗口和双端队列！">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-08T04:02:06.000Z">
-<meta property="article:modified_time" content="2022-11-15T14:10:48.784Z">
+<meta property="article:published_time" content="2022-11-17T13:07:42.000Z">
+<meta property="article:modified_time" content="2022-11-17T13:09:48.738Z">
 <meta property="article:author" content="Ausert">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="打卡">
-<meta property="article:tag" content="日记">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="胡思乱想">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -152,22 +153,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-casualNotes" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ACM学习笔记day9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      casualNotes
+      ACM学习笔记day9(滑动窗口，双端队列)
     </h1>
   
 
 
   
   
-<a href="/2022/11/08/casualNotes/" class="archive-article-date">
-        <time datetime="2022-11-08T04:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-08</time>
+<a href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" class="archive-article-date">
+        <time datetime="2022-11-17T13:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-17</time>
 </a>
 
   
@@ -180,7 +181,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">199字</span>
+      <span class="post-count">919字</span>
     </span>
   </span>
 
@@ -189,7 +190,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -200,11 +201,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="2022年11月8日-晴-周二"><a href="#2022年11月8日-晴-周二" class="headerlink" title="2022年11月8日 晴 周二"></a>2022年11月8日 晴 周二</h2><p>新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。<br><br>说起来我今天的视频还没发<br><br>幸亏之前屯了很多存货orz<br><br>不然事情还要多。<br><br>蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课<br><br>呃呃呃，害，好烦QAQ。<br></p>
+    <p>今天学习的时间比较短，哦，确实也挺短的<br>不过当时比较困，理解起来也很慢，所以今天的内容只有一个<br>是滑动窗口和双端队列！</p>
 <span id="more"></span>
 
-
-<h2 id="2022年11月11日-多云潮湿-周五"><a href="#2022年11月11日-多云潮湿-周五" class="headerlink" title="2022年11月11日 多云潮湿 周五"></a>2022年11月11日 多云潮湿 周五</h2><p>呃呃呃，明天数学竞赛了，开摆！<br>今天晚上早点睡吧。<br>不过顺带看了看算法课接下来的内容<br>哇，爆率真的很高啊<br>内容贼多（<br>不知道一个寒假能不能看得完，后面还得要大规模的刷题的，感觉到明年的下半年来不及了<br>呃呃呃。<br>害，尽力吧QWQ<br>晚安~</p>
+<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2><p>什么是滑动窗口！<br>就是单调队列的一道经典例题<br><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/868/">链接</a><br>这里因为要用到了单调队列。<br>我acwing上打卡用的是数组模拟双端队列的。<br>而目前上面的题解是使用STL里面的双端队列的<br>都差不多，感觉用STL里面的逻辑上会比较清楚<br>OK，下面开始解释这道题<br>窗口在不断滑动，然后我们要求窗口里面的最大最小值。<br>这里我们用到了单调队列，每次操作过后，使得队列的头部始终是最小值。<br>这样他要求输出的东西，知道输出头部的数值就可以了。<br>求最大值同理。<br><br><br>具体思路是什么呢<br>我们使用一个deque<int> ans;<br>里面存放的是数字的index而不是他的值——这样是为了方便检查front元素是否已经超出窗口外了<br>如果存放的是值的话，会增加时间复杂度也不容易判断是否超出窗口外了<br>我们用i指针从头部遍历存放的数组。<br>我们每次把第i个数据的index存入ans中去<br>当ans非空且如果front元素比i-k+1要小，就弹出front元素。<br>为什么呢？<br>因为我们用deque去模拟这个窗口，但因为我们是一个一个数据弹进去的<br>当窗口移动的时候，可能前面有个最小值，一直都是接下来几个数字的最小值，<br>再往后移动的时候，这个数出窗口了，那窗口内的最小值肯定就不是他了，所以必须把他弹出。<br>此外，当ans非空的时候，检查back是否大于等于a[i]的值，如果大或者等于就循环弹出，直到比a[i]小为止<br>这是为了不断维护deque的单调性，确保front元素一直都是窗口内的最小值<br>这些操作之后，如果i&gt;=k-1的话就输出front元素。<br>这样采用deque的方式，用单调队列的算法解决了这个问题。<br>求最大值的话，同理，只要把while弹出的地方，条件改成小于等于就可以了<br>其他同理<br>下面为代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include&lt;stack&gt;</span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;iomanip&gt;</span><br><span class="line">#include&lt;deque&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">const int N = 1000010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">int n, k;</span><br><span class="line">int a[N];</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    deque&lt;int&gt; ans;</span><br><span class="line">    //求最小值</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        //如果ans里面的front元素已经出窗口了，就直接弹出</span><br><span class="line">        if (!ans.empty()&amp;&amp;ans.front()&lt;i-k+1) &#123;</span><br><span class="line">            ans.pop_front();</span><br><span class="line">        &#125;</span><br><span class="line">        //如果back元素&gt;=a[i]，就循环弹出直到条件不满足位置</span><br><span class="line">        while (!ans.empty() &amp;&amp; a[ans.back()] &gt;= a[i]) &#123;</span><br><span class="line">            ans.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        //最后再把i存放及你去</span><br><span class="line">        ans.push_back(i);</span><br><span class="line">        //输出front元素</span><br><span class="line">        if (i &gt;= k-1) &#123;</span><br><span class="line">            cout &lt;&lt; a[ans.front()] &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans.clear(); //记得清空一下deque</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    //求最大值，同理</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        if (!ans.empty()&amp;&amp;ans.front()&lt;i-k+1) &#123;</span><br><span class="line">            ans.pop_front();</span><br><span class="line">        &#125;</span><br><span class="line">        while (!ans.empty() &amp;&amp; a[ans.back()] &lt;= a[i]) &#123;</span><br><span class="line">            ans.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        ans.push_back(i);</span><br><span class="line">        if (i &gt;= k-1) &#123;</span><br><span class="line">            cout &lt;&lt; a[ans.front()] &lt;&lt; &#x27; &#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OK!<br>That’s all<br>bye~~~~~~</p>
 
     
 
@@ -219,7 +221,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://ausertdream.github.io/2022/11/08/casualNotes/" title="casualNotes" target="_blank">http://ausertdream.github.io/2022/11/08/casualNotes/</a>
+          <a href="http://ausertdream.github.io/2022/11/17/ACM学习笔记day9/" title="ACM学习笔记day9(滑动窗口，双端队列)" target="_blank">http://ausertdream.github.io/2022/11/17/ACM学习笔记day9/</a>
         </li>
         
         <li>
@@ -241,19 +243,23 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
         		</li>
       		
 		</ul>
@@ -309,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/08/casualNotes/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -324,18 +330,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/11/08/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ACM学习笔记day3(高精度四则运算)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/07/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ACM学习笔记day2</div>
+    <a href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)</div>
       <i class="icon-circle-right"></i>
     </a>
   
