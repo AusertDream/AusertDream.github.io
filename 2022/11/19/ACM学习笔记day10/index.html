@@ -6,25 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>ACM学习笔记day4(前缀和和差分) | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day10(KMP) | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="今天学了前缀和和差分，及其数组。前缀和不多说了，比较好理解，主要还是差分，这个比较抽象">
+  <meta name="description" content="今天的学习内容是！KMP！呃呃呃，理解了大概两天的样子，现在终于是差不多有点理解了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ACM学习笔记day4(前缀和和差分)">
-<meta property="og:url" content="http://ausertdream.github.io/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/index.html">
+<meta property="og:title" content="ACM学习笔记day10(KMP)">
+<meta property="og:url" content="http://ausertdream.github.io/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="今天学了前缀和和差分，及其数组。前缀和不多说了，比较好理解，主要还是差分，这个比较抽象">
+<meta property="og:description" content="今天的学习内容是！KMP！呃呃呃，理解了大概两天的样子，现在终于是差不多有点理解了。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-09T14:02:19.000Z">
-<meta property="article:modified_time" content="2022-11-10T14:01:07.230Z">
+<meta property="article:published_time" content="2022-11-19T14:38:53.000Z">
+<meta property="article:modified_time" content="2022-11-19T15:57:24.615Z">
 <meta property="article:author" content="Ausert">
 <meta property="article:tag" content="ACM">
 <meta property="article:tag" content="打卡">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="KMP">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -153,22 +154,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ACM学习笔记day4" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ACM学习笔记day10" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      ACM学习笔记day4(前缀和和差分)
+      ACM学习笔记day10(KMP)
     </h1>
   
 
 
   
   
-<a href="/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/" class="archive-article-date">
-        <time datetime="2022-11-09T14:02:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-09</time>
+<a href="/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" class="archive-article-date">
+        <time datetime="2022-11-19T14:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-19</time>
 </a>
 
   
@@ -181,7 +182,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">386字</span>
+      <span class="post-count">1.4k字</span>
     </span>
   </span>
 
@@ -190,7 +191,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -201,19 +202,26 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>今天学了前缀和和差分，及其数组。<br><br>前缀和不多说了，比较好理解，主要还是差分，这个比较抽象<br></p>
+    <p>今天的学习内容是！<br>KMP！<br>呃呃呃，理解了大概两天的样子，<br>现在终于是差不多有点理解了。</p>
 <span id="more"></span>
 
 
-<h2 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h2><p>主要注意一下，前缀和数组从1开始，0的位置就归零，这样就不用地方越界问题了。</p>
-<hr>
-<h2 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h2><p>至于差分。emmmm<br><br>差分数组不需要构建，~~~当然也可以构建~~~<br><br>二位差分同理<br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int a[N],B[N]; //a为原来的数组，b为差分数组</span><br><span class="line">//执行差分的插入操作，即在l和r中间的数字都加上c。</span><br><span class="line">void insert(int l,int r,int c)&#123;</span><br><span class="line">    b[l]+=c;</span><br><span class="line">    b[r+1]-=c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void solve()&#123;</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        int t;</span><br><span class="line">        cin&gt;&gt;t;</span><br><span class="line">        insert(i,i,t);//这里相当于不用数组去存原来那个数组，原来那个数组就相当于对i和i中间的数字加上a[i]，也就是差分的思想。</span><br><span class="line">    &#125;</span><br><span class="line">    然后就是for循环，进行m次询问，同样操作。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/833/">题目链接acwing</a><br>KMP算法用于两个字符串匹配的时候提供一个线性时间复杂度的做法。<br>其中一个关键的东西，就是next数组<br>next数组定义：next[i]的值，表示主串匹配到第i位的时候，第i-1个字符以前的后缀和模板串前缀长度最长的部分的最后一个字符的位置，他记录的位置<br>是模板串里的位置。<br>比如： next[5]=3，表示主串匹配到第5位的时候，最长的和主串的后缀相同的模板串的前缀的最后的一个字符的位置是3。<br>介绍为next数组的含义<br>下面为KMP的思想(next数组的求法我们放到最后)：<br>我们用i从头遍历主串，然后用另外一个指针j去遍历模板串<br>这里我们初始化i=0，j=-1(为什么让j为-1，这里是为了和next数组里面存的数据相对应)<br>我们记主串为S，模板串为P<br>去比较S[i]==P[j+1]吗？ //我们这里为什么要P[j+1]而不是P[j]呢？因为我们默认j是已经匹配好的最后一个字符，是为了配合next的定义</p>
+<blockquote>
+<p>如果相等，那最好，直接j++就可以了</p>
+</blockquote>
+<blockquote>
+<p>如果不相等，我们得让j回退吧，但是如果j从头开始就是暴力做法了，会很多重复的浪费的步骤，这里我们就要用到next数组了<br>我们直接让j=next[j],让j回退到最大长度的已经匹配好的地方，然后再进行P[j+1]==S[i]的比较<br>这里我们使用一个while循环一下</p>
+</blockquote>
+<p>See see code</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//KMP算法</span><br><span class="line"> //m为主串长度</span><br><span class="line">    for (int i = 0, j = -1; i &lt; m; i++) &#123;</span><br><span class="line">        //循环判断 s[i] != p[j + 1]是否？，如果不相等就就让j回溯到ne[j]。直至相等为止</span><br><span class="line">        while (j != -1 &amp;&amp; s[i] != p[j + 1]) &#123;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">        //如果相等，让j自加</span><br><span class="line">        if (s[i] == p[j + 1]) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        //这里，如果j==n-1，说明j已经指向了模板串的最后一位了，而根据我们之前的定义，j是已经匹配好的串的最后一位，</span><br><span class="line">        //那么j==n-1就说明，已经匹配好了。</span><br><span class="line">        //输出i-n+1就是匹配的串的第一个字符的位置了</span><br><span class="line">        if (j == n - 1) &#123;</span><br><span class="line">            cout &lt;&lt; i - n + 1 &lt;&lt; &#x27; &#x27;;</span><br><span class="line">            j = ne[j];//这里，可能会有多个模板串重叠的情况，所以要让j回退一次，</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>然后二维差分的话，要注意一个点，就是你在差分数组的第ij个值的地方加了个c，<br><br>那么在行&gt;=i,列&gt;=j的后面所有数据<br><br>都加上了个c，这里的话要考虑一个容斥原理。<br><br>下面为insert代码：<br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//b数组为差分数组，c为要加的值</span><br><span class="line">void insert(int x1, int y1, int x2, int y2, int c) &#123;</span><br><span class="line">    b[x1][y1] += c;</span><br><span class="line">    b[x1][y2 + 1] -= c;</span><br><span class="line">    b[x2 + 1][y1] -= c;</span><br><span class="line">    b[x2 + 1][y2 + 1] += c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后接下来，就是求解next数组的部分，这部分其实是KMP算法里面最难的部分了<br>就是这东西一直不理解(哭)<br>我们在匹配的时候，发现第i个位置匹配的位置不对了，这里我们可以看到前面的其实是有一部分模板串的前缀和主串的后缀是匹配的，我们想办法<br>把那里的位置给存下来，然后让j直接等于他就可以了，这既是next数组<br>那么怎么求next数组呢？<br>因为我们是要在已经匹配好的地方去找next应该在哪里<br>而此时因为上下已经匹配了<br>所以我们只要对模板串操作就可以了<br>反正两部分都是一样的嘛<br>我们怎么求这个next数组呢?<br>其实思路和求主串和模板串匹配是一样的<br>我们结合代码来看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//构造next数组</span><br><span class="line"> //n为模板串长度</span><br><span class="line">    //老规矩，遍历一边模板串，这里求next数组其实就是让模板串和模板串进行一个字符匹配</span><br><span class="line">    //我们初始化next数组全部都是-1，表示最长相同部分的最后一个位置为-1，不存在</span><br><span class="line">    for (int i = 1, j = -1; i &lt; n; i++) &#123;</span><br><span class="line">        //这里i指的P当做主串，j指向的P当做模板串。</span><br><span class="line">        //这里其实有点状态转移的思想，当我们遍历到i的时候，如果p[i]!=p[j+1]则让j回溯</span><br><span class="line">        //再进行比较</span><br><span class="line">        while (j != -1 &amp;&amp; p[i] != p[j + 1]) &#123;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">        //如果相等了，就让j++，j往后一个位置</span><br><span class="line">        if (p[i] == p[j + 1]) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        ne[i] = j; //每次都记录一下当前的j的位置，</span><br><span class="line">        //不难发现，如果运行到了这一步，说明第i个位置这里，j已经是相同后缀的最后一位了</span><br><span class="line">        //这里是是p[j+1]在和他们比较，所以j++后直接存入ne中去，</span><br><span class="line">        //如果不相等的话，仍然存之前那个值</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<p>记住，差分数组不需要自己想着构建awa<br><br>That’s all<br><br>bye~</p>
+<p>下面为完整代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">constexpr auto INF = 2100000000;</span><br><span class="line">constexpr long long INF64 = 1e18;</span><br><span class="line">const int N = 1000010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line"></span><br><span class="line">int n, m;</span><br><span class="line">string s, p;</span><br><span class="line">int ne[N] = &#123; -1 &#125;;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; p &gt;&gt; m &gt;&gt; s;</span><br><span class="line">    //构造next数组</span><br><span class="line">    for (int i = 1, j = -1; i &lt; n; i++) &#123;</span><br><span class="line">        while (j != -1 &amp;&amp; p[i] != p[j + 1]) &#123;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">        if (p[i] == p[j + 1]) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        ne[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //KMP算法</span><br><span class="line">    for (int i = 0, j = -1; i &lt; m; i++) &#123;</span><br><span class="line">        while (j != -1 &amp;&amp; s[i] != p[j + 1]) &#123;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">        if (s[i] == p[j + 1]) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        if (j == n - 1) &#123;</span><br><span class="line">            cout &lt;&lt; i - n + 1 &lt;&lt; &#x27; &#x27;;</span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>总的来说<br>KMP算法感觉还是挺难理解的<br>搞了两天的时间。<br>害<br>OK<br>That’s all<br>Bye~</p>
 
     
 
@@ -228,7 +236,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://ausertdream.github.io/2022/11/09/ACM学习笔记day4/" title="ACM学习笔记day4(前缀和和差分)" target="_blank">http://ausertdream.github.io/2022/11/09/ACM学习笔记day4/</a>
+          <a href="http://ausertdream.github.io/2022/11/19/ACM学习笔记day10/" title="ACM学习笔记day10(KMP)" target="_blank">http://ausertdream.github.io/2022/11/19/ACM学习笔记day10/</a>
         </li>
         
         <li>
@@ -267,6 +275,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">KMP</a>
         		</li>
       		
 		</ul>
@@ -322,7 +334,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -337,18 +349,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ACM学习笔记day5(双指针，位运算)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/09/ACM%E5%B0%8F%E6%9C%AC%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ACM小本本</div>
+    <a href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day9(滑动窗口，双端队列)</div>
       <i class="icon-circle-right"></i>
     </a>
   
