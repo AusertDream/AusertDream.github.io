@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>Tag: ACM | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day14（带权并查集，堆排序，模拟堆） | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="这是我的个人博客丫">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ausert&#39;s blog">
-<meta property="og:url" content="http://ausertdream.github.io/tags/ACM/index.html">
+  <meta name="description" content="Hello guys!感觉好久没有写笔记了，上次写笔记好像是呃呃呃，五天前了吧。要忙学校的好多事情，呜呜呜，我有罪orz好了，不bb了，今天的学习内容是带权并查集（食物链）,堆模拟,堆排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM学习笔记day14（带权并查集，堆排序，模拟堆）">
+<meta property="og:url" content="http://ausertdream.github.io/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="这是我的个人博客丫">
+<meta property="og:description" content="Hello guys!感觉好久没有写笔记了，上次写笔记好像是呃呃呃，五天前了吧。要忙学校的好多事情，呜呜呜，我有罪orz好了，不bb了，今天的学习内容是带权并查集（食物链）,堆模拟,堆排序">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-01T14:13:12.000Z">
+<meta property="article:modified_time" content="2022-12-02T08:09:03.439Z">
 <meta property="article:author" content="Ausert">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="打卡">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="带权并查集">
+<meta property="article:tag" content="堆">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -143,41 +152,125 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ACM学习笔记day14" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" class="archive-article-date">
-        <time datetime="2022-12-01T14:13:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-01</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" target="_blank">ACM学习笔记day14（带权并查集，堆排序，模拟堆）</a>
   
+    <h1 class="article-title" itemprop="name">
+      ACM学习笔记day14（带权并查集，堆排序，模拟堆）
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+<a href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" class="archive-article-date">
+        <time datetime="2022-12-01T14:13:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-01</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">3.5k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">13分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Hello guys!<br>感觉好久没有写笔记了，上次写笔记好像是呃呃呃，五天前了吧。<br>要忙学校的好多事情，呜呜呜，我有罪orz<br>好了，不bb了，今天的学习内容是<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/242/">带权并查集</a>（食物链）,<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/841/">堆模拟</a>,<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/840/">堆排序</a></p>
+<span id="more"></span>
+
+<h2 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h2><p>带权并查集就是原来并查集的升级版，plus版本。<br>相较于原来的普通的并查集，带权并查集我们所维护的树，每一条边都有了权值。<br>这就是带权并查集<br>下面针对acwing上这道题目来理解带权并查集。<br>食物链的题目。<br>题目简单描述一下，有ABC三种动物，这三种动物是互相吃的<br>比如，A吃B，B吃C，C吃A，食物链是形成一个闭环的。<br>然后现在有N个动物，给你k个说法，判断里面有多少假话。<br>假话的标准(满足其中一个就是假话)是：</p>
+<blockquote>
+<p>当前的话与前面的某些真的话冲突，就是假话；<br>当前的话中 X 或 Y 比 N 大，就是假话；<br>当前的话表示 X 吃 X，就是假话。</p>
+</blockquote>
+<p>k个说法中，有两种形式</p>
+<blockquote>
+<ol>
+<li> 1 X Y 表示X和Y 是同类</li>
+<li> 2 X Y 表示X吃Y。</li>
+</ol>
+</blockquote>
+<p>对于这题，我们维护一个树，树的不同节点，表示各个动物，然后我们对于每个节点，使之与根节点建立联系<br>如果说，当前节点与根节点的距离为1，就定义为当前节点吃根节点，如果为2，就是被根节点吃<br>如果是3就是与根节点同类<br>实际过程中，这个距离难免会出现大于3的情况，因为一共就三种动物，所以距离是以3为循环的<br>所以我们处理操作的时候让距离mod3就可以了<br>这里我们要定义两个数组，一个是p[N]，一个是d[N]，p是该节点的父亲节点，这个不多赘述<br>而d是该节点的距离其双亲节点的距离，注意！是到双亲的距离，不是根节点的距离，这个概念很重要！！<br>好，我们定义完这个并查集的带权信息后，<br>那么我们怎么界定X和Y是否是同类，是否是吃和被吃的关系呢？<br>如果是同类并且根节点是同一个的话，如果X到根节点的距离%3为零，并且Y到根节点的距离%3也为零，就说明X和Y都是和根节点同类的<br>也就说明X和Y同类。在数值上表现为(d[x]-d[y])%3==0<br>如果X是吃Y的并且在根节点是一致的，那我们就去找X是和根节点是同类的，然后Y是被根节点吃的，当然这是一种特殊的情况，但是计算值可以代表普遍属性<br>也就是(d[x]-d[y]-1)%3==0<br>如果根节点不一样的话，说明我们所维护的树上，没有这个信息，不用管肯定是真的，将目前的信息加入到树上。<br>下面为代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int p[N],d[N]; //p代表一个节点的双亲节点是谁，d表示一个节点的到双亲结点的距离</span><br><span class="line">int n,m; //n是节点个数，m是m个陈述</span><br><span class="line">//并查集里面基础的模板查找，find函数，查找一个节点的根节点，同时进行路劲压缩和d距离的修改</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    if(p[x]!=x)&#123;</span><br><span class="line">        int t=find(p[x]); //这里要提前存一下他的根节点是哪个，如果这里不存t，下面那个地方写p[X]=find（p[x]）会出错</span><br><span class="line">        //具体原因是因为递归的关系，这种写法才可以，如果看到不懂的，可以自己模拟一下递归的过程，或者直接记住这个就可以了</span><br><span class="line">        d[x]+=d[p[x]]; //将当前这个节点到根节点的距离递加父节点到根节点的距离。如果去模拟这个递推的过程的话，这个</span><br><span class="line">        //不难理解，先根节点的一个孩子节点进行，然后再孩子节点，距离弄完，同时也把他直接连到了根节点上。</span><br><span class="line">        //同时，这个时候再让d[x]+=d[p[x]]也就是当前节点到根节点的距离了</span><br><span class="line">        p[x]=t; //路径压缩 </span><br><span class="line">    &#125;</span><br><span class="line">    return p[x]; //返回根节点</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    //p数组的初始化，不要忘了！</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        p[i]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    int res=0; //结果</span><br><span class="line">    //m次询问</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        int t,x,y;</span><br><span class="line">        cin&gt;&gt;t&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        if(x&gt;n||y&gt;n)&#123; //如果x，y超出了n的范围，直接可以得出来是假的</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">        int px=find(x),py=find(y); //非常妙的一步</span><br><span class="line">        //首先先把x和y的根节点给存储起来，这还不是最妙的</span><br><span class="line">        //最妙的是先进行了这样的一部操作，是进行了一次路径压缩，也就是说，下面用到的d[x],d[y]，</span><br><span class="line">        //定义上是该节点到他的父节点的距离，但是实际上是到根节点的距离，这样，我们也就方便我们接下来的操作了。</span><br><span class="line">        if(t==1)&#123; </span><br><span class="line">            if(px==py&amp;&amp;(d[x]-d[y])%3)&#123; //如果在一棵树上，并且不是同类的话</span><br><span class="line">                res++; //假话++：</span><br><span class="line">            &#125;</span><br><span class="line">            else if(px!=py)&#123; //如果不在一棵树上，说明目前没有这个信息，就把他存进去</span><br><span class="line">                //添加信息，其实很简单，就两步操作，一个是把树连过去，一个是修改d的值</span><br><span class="line">                //注意，如果把px连py上，那么要修改的是d[px]而不是其他的比如d[x]或者d[y]</span><br><span class="line">                //修改根才是真的修改，不然都是部分的修改，没有修改本质</span><br><span class="line">                d[px]=d[y]-d[x];  //这个可以画图加上列方程求解这里为啥是这个值</span><br><span class="line">                p[px]=py; //把px连到py上</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(px==py&amp;&amp;(d[x]-d[y]-1)%3)&#123; //如果在同一树上并且不满足x吃y的关系，res++</span><br><span class="line">                res++;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(px!=py)&#123;</span><br><span class="line">                d[px]=1+d[y]-d[x]; //为什么是这个值同理，画图加方程求解</span><br><span class="line">                p[px]=py;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;res&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，差不多这题差不多就是这么个意思，关键就在于使用带权并查集然后并且赋予权值意义，结合题意来求解</p>
+<p>下一题是</p>
+<h2 id="模拟堆"><a href="#模拟堆" class="headerlink" title="模拟堆"></a>模拟堆</h2><p>什么是堆？其实堆就是一个完全二叉树，堆分为小根堆和大根堆。<br>小根堆就是，根节点的值是小于等于左右孩子节点的值的，对于一棵树的每一颗子树都是这样的，这样就是小根堆<br>大根堆同理。<br>堆一般有三个操作</p>
+<blockquote>
+<p>1.插入一个数<br>2.输出当前集合的最小值<br>3.删除最小值</p>
+</blockquote>
+<p>除此之外，有更进阶的操作是</p>
+<blockquote>
+<p>4.删除第k个插入的数字<br>5.修改第k个插入的数字</p>
+</blockquote>
+<p>这些那么多操作的背后，有两个基本的操作</p>
+<blockquote>
+<p>1.up操作，就是把当前数字的位置往上移动，直到目前的位置满足小根堆的定义或者大根堆的定义<br>2.down操作和up操作刚好反过来。</p>
+</blockquote>
+<p>模拟堆，我们一般用一维数组来存储，一个节点的左孩子是2*i，右孩子是2*i+1,这里其实就是完全二叉树的一个性质<br>用到了这个性质来用数组模拟二叉树的结构。</p>
+<p>对于acwing上的这题模拟堆，要想满足还要删除修改第k个值，需要用到两个额外的数组，一个是ph[N],一个是hp[N]<br>其中ph[i]，表示第i个插入的数组在堆中是第几个数字，hp[i]表示堆中的第i个数字是第几个插入的<br>为什么要用到这两个数组呢？<br>因为我们修改一个数的值的时候，为了维护堆，必然要让他up和down的，那么此时他在堆的编号和他实际是第几个插入的已经不匹配了<br>所以我们需要这么两个数组来获取编号信息<br>同时，因为我们用到了这两个数组，普通的swap函数已经不能用了，我们需要自己写一个特殊的swap函数，用于交换数字之后，hp和ph的值也要交换<br>下面结合代码来看看如何操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N =100010;</span><br><span class="line">int n,m; //这里这个m是统计第几个插入的数字的</span><br><span class="line">int heap[N],hp[N],ph[N],sz;  //sz表示当前堆的大小，sz指向的是当前堆的最后一个数字</span><br><span class="line">//heap数组用于存放堆的数据，hp和ph上面已经说明过了</span><br><span class="line">//堆里面特殊的swap操作,首先你要交换ph指针，然后交换hp指针，然后交换heap里面的数值 这里，输入的数值是堆里面的第几个数</span><br><span class="line">//也不在是单纯的数值了</span><br><span class="line">void heap_swap(int a,int b)&#123;</span><br><span class="line">    swap(ph[hp[a]],ph[hp[b]]);</span><br><span class="line">    swap(hp[a],hp[b]);</span><br><span class="line">    swap(heap[a],heap[b]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void down(int i)&#123;</span><br><span class="line">    int min=i; //记录三个数中的最小的那个标号</span><br><span class="line">    if(2*i&lt;=sz&amp;&amp;heap[2*i]&lt;heap[min])&#123; //如果存在左孩子，并且左孩子比min值小，就把min更新</span><br><span class="line">        min=2*i;</span><br><span class="line">    &#125;</span><br><span class="line">    if(2*i+1&lt;=sz&amp;&amp;heap[2*i+1]&lt;heap[min])&#123; //同理，维护min</span><br><span class="line">        min=2*i+1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(min!=i)&#123; //如果此时min和要求down的i不一样，说明此时的i需要往下移动</span><br><span class="line">        heap_swap(min,i); //交换min和i的值</span><br><span class="line">        down(min); //递归继续进行down操作直到满足小根堆的条件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void up(int i)&#123;</span><br><span class="line">    if(i/2&gt;0&amp;&amp;heap[i]&lt;heap[i/2])&#123; //如果他的值是小于双亲结点，那么就交换一下数字，然后继续up就可以了</span><br><span class="line">        heap_swap(i,i/2);</span><br><span class="line">        up(i/2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        string op;</span><br><span class="line">        cin&gt;&gt;op;</span><br><span class="line">        if(op==&quot;I&quot;)&#123;</span><br><span class="line">            //插入一个数字x</span><br><span class="line">            int x;</span><br><span class="line">            cin&gt;&gt;x;</span><br><span class="line">            m++; //m++，这是第m插入的</span><br><span class="line">            sz++; //同时数字的大小也要增加1</span><br><span class="line">            ph[m]=sz; //第m个插入的在堆里面是第sz个</span><br><span class="line">            hp[sz]=m; //堆里面的第sz个是第m个插入的</span><br><span class="line">            heap[sz]=x; //把值存入heap里面去 </span><br><span class="line">            up(sz); //因为插入在尾部，所以要up他，来维护小根堆的定义</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;PM&quot;)&#123;</span><br><span class="line">            cout&lt;&lt;heap[1]&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;DM&quot;)&#123;</span><br><span class="line">            heap_swap(1,sz); //删除最小的节点，就直接交换第一个节点和最后一个可以了</span><br><span class="line">            sz--;//sz--就是删掉了最后一个节点</span><br><span class="line">            down(1); //别忘了要down一下最后一个节点，来维护小根堆的定义</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;D&quot;)&#123;</span><br><span class="line">            int k;</span><br><span class="line">            cin&gt;&gt;k;</span><br><span class="line">            //要删除第k个数字，同理的，把第k个数字和最后一个数字交换一下</span><br><span class="line">            int u=ph[k]; //要先存一下ph[k]的信息，交换完之后的话，不存到这个u里面，会不知道down和up谁去</span><br><span class="line">            heap_swap(ph[k],sz);</span><br><span class="line">            sz--;</span><br><span class="line">            up(u);</span><br><span class="line">            down(u);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            int k,x;</span><br><span class="line">            cin&gt;&gt;k&gt;&gt;x;</span><br><span class="line">            heap[ph[k]]=x; //修改值</span><br><span class="line">            up(ph[k]); //然后维护一下小根堆</span><br><span class="line">            down(ph[k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总之，模拟堆的基本思想就是用一维数组去模拟完全二叉树的结构，然后根据堆的结构去维护这样的一个树<br>基本的操作就是两个up和down，删除操作一般是要删除的节点和最后一个节点互换，然后删除最后一个节点来进行的。<br>基本的东西就这些<br><br><br>接下来的就是堆排序<br>理解了模拟堆之后，堆排序也就很简单了。<br>因为我们如果要升序排序的话，只要构建一个小根堆就可以了<br>降序的话就是大根堆</p>
+<p>我们来看acwing的这道题，直接结合代码来说明了<br>理解完堆之后<br>理解这个不难的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int n,m;</span><br><span class="line">int heap[N],sz;</span><br><span class="line">//正常的down操作，这里我们不需要up操作</span><br><span class="line">//因为我们只要前m小的数字，输出一个删掉一个，不会用到up操作的</span><br><span class="line">void down(int n)&#123;</span><br><span class="line">    int t=n;</span><br><span class="line">    if(2*n&lt;=sz&amp;&amp;heap[2*n]&lt;heap[t])&#123;</span><br><span class="line">        t=2*n;</span><br><span class="line">    &#125;</span><br><span class="line">    if(2*n+1&lt;=sz&amp;&amp;heap[2*n+1]&lt;heap[t])&#123;</span><br><span class="line">        t=2*n+1;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t!=n)&#123;</span><br><span class="line">        swap(heap[t],heap[n]);</span><br><span class="line">        down(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    sz=n;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;heap[i]; //我们先把数据都输入到堆里面去</span><br><span class="line">    &#125;</span><br><span class="line">    //这里这个是个特殊的操作，我们如何快速构建一个堆？在O(n)时间内</span><br><span class="line">    //我们从第n/2开始进行down操作，一直进行到第1个</span><br><span class="line">    //这么操作之后的话我们就把数据成功构建成一个堆了</span><br><span class="line">    //当然也可以一个一个插入，这样的话是O(nlogn)的时间复杂度了</span><br><span class="line">    for(int i=n/2;i;i--)&#123;</span><br><span class="line">        down(i); </span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        cout&lt;&lt;heap[1]&lt;&lt;&quot; &quot;; //输出最小值</span><br><span class="line">        heap[1]=heap[sz]; //删除最小值</span><br><span class="line">        sz--;</span><br><span class="line">        down(1); //别忘了再维护一下小根堆</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好啦，这就是全部内容啦，模拟堆和食物链这两题里面你的东西还是比较多的，不过理解起来还好，问题不是很大<br>那么bye~<br>我们下次再见啦~qwq</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Ausert
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ausertdream.github.io/2022/12/01/ACM学习笔记day14/" title="ACM学习笔记day14（带权并查集，堆排序，模拟堆）" target="_blank">http://ausertdream.github.io/2022/12/01/ACM学习笔记day14/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          网页作者：Ausert  主题作者：yilia
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,574 +306,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" class="archive-article-date">
-        <time datetime="2022-11-25T11:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day13(求连通块中点的数量)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" target="_blank">ACM学习笔记day13(求连通块中点的数量)</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" class="archive-article-date">
-        <time datetime="2022-11-24T14:50:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" target="_blank">ACM学习笔记day12(最大异或对，并查集)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Trie树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/20/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day11/" class="archive-article-date">
-        <time datetime="2022-11-20T13:36:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/20/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day11/" target="_blank">ACM学习笔记day11(Trie树)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" class="archive-article-date">
-        <time datetime="2022-11-19T14:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" target="_blank">ACM学习笔记day10(KMP)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">KMP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" class="archive-article-date">
-        <time datetime="2022-11-17T13:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" target="_blank">ACM学习笔记day9(滑动窗口，双端队列)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" class="archive-article-date">
-        <time datetime="2022-11-15T13:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" target="_blank">ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" class="archive-article-date">
-        <time datetime="2022-11-12T15:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" target="_blank">ACM学习笔记day7(区间合并，静态单链表，静态双向链表)</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" class="archive-article-date">
-        <time datetime="2022-11-10T13:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" target="_blank">ACM学习笔记day6(离散化)</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">离散化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" class="archive-article-date">
-        <time datetime="2022-11-10T09:25:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" target="_blank">ACM学习笔记day5(双指针，位运算)</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/ACM/page/2/">2</a><a class="extend next" rel="next" href="/tags/ACM/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -809,9 +435,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

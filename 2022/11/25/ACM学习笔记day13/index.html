@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>Tag: ACM | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day13(求连通块中点的数量) | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="这是我的个人博客丫">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ausert&#39;s blog">
-<meta property="og:url" content="http://ausertdream.github.io/tags/ACM/index.html">
+  <meta name="description" content="今天的内容是求连通块中点的数量 求连通块中点的数量这题和并查集那道模板题差不多就是多了一个要求让你统计集合中的数量而已这里我们用到一个cnt数组，同时我们规定，只有根节点的cnt数据是有意义的这样我们就避免了要给多个同连通块的集合重新赋值的麻烦 12345678910111213141516171819202122232425262728293031323334353637383940414243">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM学习笔记day13(求连通块中点的数量)">
+<meta property="og:url" content="http://ausertdream.github.io/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="这是我的个人博客丫">
+<meta property="og:description" content="今天的内容是求连通块中点的数量 求连通块中点的数量这题和并查集那道模板题差不多就是多了一个要求让你统计集合中的数量而已这里我们用到一个cnt数组，同时我们规定，只有根节点的cnt数据是有意义的这样我们就避免了要给多个同连通块的集合重新赋值的麻烦 12345678910111213141516171819202122232425262728293031323334353637383940414243">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-25T11:42:49.000Z">
+<meta property="article:modified_time" content="2022-11-25T11:59:57.159Z">
 <meta property="article:author" content="Ausert">
+<meta property="article:tag" content="ACM">
+<meta property="article:tag" content="打卡">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="并查集">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -143,108 +151,87 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ACM学习笔记day13" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" class="archive-article-date">
-        <time datetime="2022-12-01T14:13:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-01</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" target="_blank">ACM学习笔记day14（带权并查集，堆排序，模拟堆）</a>
   
+    <h1 class="article-title" itemprop="name">
+      ACM学习笔记day13(求连通块中点的数量)
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">带权并查集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+  
 <a href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" class="archive-article-date">
         <time datetime="2022-11-25T11:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" target="_blank">ACM学习笔记day13(求连通块中点的数量)</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">424字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今天的内容是求连通块中点的数量</p>
+<h2 id="求连通块中点的数量"><a href="#求连通块中点的数量" class="headerlink" title="求连通块中点的数量"></a>求连通块中点的数量</h2><p>这题和并查集那道模板题差不多<br>就是多了一个要求<br>让你统计集合中的数量而已<br>这里我们用到一个cnt数组，同时我们规定，只有根节点的cnt数据是有意义的<br>这样我们就避免了要给多个同连通块的集合重新赋值的麻烦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int p[N],cnt[N];</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    if(p[x]!=x)&#123;</span><br><span class="line">        p[x]=find(p[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    return p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        p[i]=i;</span><br><span class="line">        cnt[i]=1; //一开始每一个连通块中都只有一个点</span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        string op;</span><br><span class="line">        cin&gt;&gt;op;</span><br><span class="line">        if(op==&quot;C&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b)) continue; //这里特判一下，如果a和b已经在同一个连通块里面了，不需要在加啥了，不然会将值翻倍导致WA</span><br><span class="line">            cnt[find(b)]+=cnt[find(a)];//新的树的cnt个数也就是原来的加上另外一个的cnt值</span><br><span class="line">            p[find(a)]=find(b); //这里cnt改变要先进行，不然find(a)的值会被改变，也就会导致cnt计数错误</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;Q1&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b))&#123;</span><br><span class="line">                cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            int a;</span><br><span class="line">            cin&gt;&gt;a;</span><br><span class="line">            cout&lt;&lt;cnt[find(a)]&lt;&lt;endl;//要就输出结果的话，就直接输出a的根节点的cnt的值就可以了</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          Ausert
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://ausertdream.github.io/2022/11/25/ACM学习笔记day13/" title="ACM学习笔记day13(求连通块中点的数量)" target="_blank">http://ausertdream.github.io/2022/11/25/ACM学习笔记day13/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          网页作者：Ausert  主题作者：yilia
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -276,511 +263,116 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" class="archive-article-date">
-        <time datetime="2022-11-24T14:50:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ACM学习笔记day14（带权并查集，堆排序，模拟堆）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day12(最大异或对，并查集)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" target="_blank">ACM学习笔记day12(最大异或对，并查集)</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Trie树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/20/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day11/" class="archive-article-date">
-        <time datetime="2022-11-20T13:36:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/20/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day11/" target="_blank">ACM学习笔记day11(Trie树)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" class="archive-article-date">
-        <time datetime="2022-11-19T14:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/19/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day10/" target="_blank">ACM学习笔记day10(KMP)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">KMP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" class="archive-article-date">
-        <time datetime="2022-11-17T13:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-17</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/17/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day9/" target="_blank">ACM学习笔记day9(滑动窗口，双端队列)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" class="archive-article-date">
-        <time datetime="2022-11-15T13:52:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" target="_blank">ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" class="archive-article-date">
-        <time datetime="2022-11-12T15:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-12</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" target="_blank">ACM学习笔记day7(区间合并，静态单链表，静态双向链表)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" class="archive-article-date">
-        <time datetime="2022-11-10T13:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" target="_blank">ACM学习笔记day6(离散化)</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">离散化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" class="archive-article-date">
-        <time datetime="2022-11-10T09:25:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" target="_blank">ACM学习笔记day5(双指针，位运算)</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/ACM/page/2/">2</a><a class="extend next" rel="next" href="/tags/ACM/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -809,9 +401,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

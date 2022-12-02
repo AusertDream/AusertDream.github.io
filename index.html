@@ -44,9 +44,6 @@
   
 
   
-    
- 	  <script src="/lib/clickLove.js"></script>
-  
   
 
 
@@ -153,6 +150,225 @@
             
 
   
+    <article id="post-ACM学习笔记day14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" target="_blank">ACM学习笔记day14（带权并查集，堆排序，模拟堆）</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/" class="archive-article-date">
+        <time datetime="2022-12-01T14:13:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Hello guys!<br>感觉好久没有写笔记了，上次写笔记好像是呃呃呃，五天前了吧。<br>要忙学校的好多事情，呜呜呜，我有罪orz<br>好了，不bb了，今天的学习内容是<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/242/">带权并查集</a>（食物链）,<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/841/">堆模拟</a>,<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/840/">堆排序</a></p>
+    
+    <a class="article-more-a" href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">带权并查集</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">堆</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/01/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day14/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ACM学习笔记day13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" target="_blank">ACM学习笔记day13(求连通块中点的数量)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/" class="archive-article-date">
+        <time datetime="2022-11-25T11:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>今天的内容是求连通块中点的数量</p>
+<h2 id="求连通块中点的数量"><a href="#求连通块中点的数量" class="headerlink" title="求连通块中点的数量"></a>求连通块中点的数量</h2><p>这题和并查集那道模板题差不多<br>就是多了一个要求<br>让你统计集合中的数量而已<br>这里我们用到一个cnt数组，同时我们规定，只有根节点的cnt数据是有意义的<br>这样我们就避免了要给多个同连通块的集合重新赋值的麻烦</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int p[N],cnt[N];</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    if(p[x]!=x)&#123;</span><br><span class="line">        p[x]=find(p[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    return p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        p[i]=i;</span><br><span class="line">        cnt[i]=1; //一开始每一个连通块中都只有一个点</span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        string op;</span><br><span class="line">        cin&gt;&gt;op;</span><br><span class="line">        if(op==&quot;C&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b)) continue; //这里特判一下，如果a和b已经在同一个连通块里面了，不需要在加啥了，不然会将值翻倍导致WA</span><br><span class="line">            cnt[find(b)]+=cnt[find(a)];//新的树的cnt个数也就是原来的加上另外一个的cnt值</span><br><span class="line">            p[find(a)]=find(b); //这里cnt改变要先进行，不然find(a)的值会被改变，也就会导致cnt计数错误</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;Q1&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b))&#123;</span><br><span class="line">                cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            int a;</span><br><span class="line">            cin&gt;&gt;a;</span><br><span class="line">            cout&lt;&lt;cnt[find(a)]&lt;&lt;endl;//要就输出结果的话，就直接输出a的根节点的cnt的值就可以了</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ACM学习笔记day12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -209,11 +425,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -317,7 +533,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -325,7 +541,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -421,7 +637,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -429,7 +645,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -529,7 +745,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -537,7 +753,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -633,7 +849,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -641,7 +857,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -737,7 +953,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -745,7 +961,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
@@ -841,7 +1057,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -849,7 +1065,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -949,7 +1165,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -957,7 +1173,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -972,210 +1188,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ACM学习笔记day4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/" target="_blank">ACM学习笔记day4(前缀和和差分)</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/" class="archive-article-date">
-        <time datetime="2022-11-09T14:02:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今天学了前缀和和差分，及其数组。<br><br>前缀和不多说了，比较好理解，主要还是差分，这个比较抽象<br></p>
-    
-    <a class="article-more-a" href="/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ACM小本本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/09/ACM%E5%B0%8F%E6%9C%AC%E6%9C%AC/" target="_blank">ACM小本本</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/09/ACM%E5%B0%8F%E6%9C%AC%E6%9C%AC/" class="archive-article-date">
-        <time datetime="2022-11-09T12:43:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>这里是记录ACM知识点中一些零碎的东西，或者一些小的注意点啥的<br></p>
-    
-    <a class="article-more-a" href="/2022/11/09/ACM%E5%B0%8F%E6%9C%AC%E6%9C%AC/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">笔记本</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">零碎的</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">知识点</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/09/ACM%E5%B0%8F%E6%9C%AC%E6%9C%AC/">展开全文 >></a>
     </p>
     
 
@@ -1334,7 +1346,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,19 +1354,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Trie树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">打卡（大概）</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,7 +1362,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">堆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Trie树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">打卡（大概）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1382,19 +1398,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网站维护</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
+                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1407,6 +1411,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">胡思乱想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网站维护</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1594,16 +1614,6 @@
   <!-- <script async type="text/javascript" size="90" alpha="0.2" zIndex="0" src="/plugins/ribbon.js/ribbon.min.js"></script> -->
   
   
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 
