@@ -6,25 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>ACM学习笔记day7(区间合并，静态单链表，静态双向链表) | Ausert&#39;s blog</title>
+  <title>Tag: 哈希表 | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="emm今天搞了点区间合并和静态链表。感觉静态链表的写法还是比较繁琐的。逻辑上感觉有点绕可能是我写习惯动态链表的原因吧（">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ACM学习笔记day7(区间合并，静态单链表，静态双向链表)">
-<meta property="og:url" content="http://ausertdream.github.io/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/index.html">
+  <meta name="description" content="这是我的个人博客丫">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ausert&#39;s blog">
+<meta property="og:url" content="http://ausertdream.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="emm今天搞了点区间合并和静态链表。感觉静态链表的写法还是比较繁琐的。逻辑上感觉有点绕可能是我写习惯动态链表的原因吧（">
+<meta property="og:description" content="这是我的个人博客丫">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-12T15:20:17.000Z">
-<meta property="article:modified_time" content="2022-11-12T15:37:08.093Z">
 <meta property="article:author" content="Ausert">
-<meta property="article:tag" content="ACM">
-<meta property="article:tag" content="打卡">
-<meta property="article:tag" content="学习">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -150,100 +143,41 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ACM学习笔记day7" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2022/12/02/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day15/" class="archive-article-date">
+        <time datetime="2022-12-02T12:15:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-02</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2022/12/02/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day15/" target="_blank">ACM学习笔记day15(哈希，字符串的哈希)</a>
   
-    <h1 class="article-title" itemprop="name">
-      ACM学习笔记day7(区间合并，静态单链表，静态双向链表)
     </h1>
   
 
 
-  
-  
-<a href="/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" class="archive-article-date">
-        <time datetime="2022-11-12T15:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-12</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.1k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>emm今天搞了点区间合并和静态链表。<br>感觉静态链表的写法还是比较繁琐的。<br>逻辑上感觉有点绕<br>可能是我写习惯动态链表的原因吧（</p>
-<span id="more"></span>
-
-
-<h2 id="区间合并"><a href="#区间合并" class="headerlink" title="区间合并"></a>区间合并</h2><p>题目来源Acwing<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/805/">链接</a><br>题目不难，贪心就能做。<br>当时不讲，直接做出来了。<br>不多赘述。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">constexpr auto INF = 2100000000;</span><br><span class="line">constexpr auto INF64 = 1e18;</span><br><span class="line">const int N = 100010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line"></span><br><span class="line">bool cmp(PII a, PII b) &#123;</span><br><span class="line">    return a.second &lt; b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;PII&gt; a(n);</span><br><span class="line">    for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        PII temp;</span><br><span class="line">        cin &gt;&gt; temp.first &gt;&gt; temp.second;</span><br><span class="line">        a[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a.begin(), a.end(), cmp);</span><br><span class="line">    int l, cnt = 1;</span><br><span class="line">    l = a[n - 1].first;</span><br><span class="line">    for (int i = n - 2; i &gt;= 0; i--) &#123;</span><br><span class="line">        if (l &lt;= a[i].second) &#123;</span><br><span class="line">            l = min(a[i].first,l);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            l = a[i].first;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>这里的话我就把单链表和双链表的内容合并在一起好了。<br>在实际的算法比赛中，我们一般采用的链表都是静态链表<br>也就是依托数组作为存储结构的链表。<br>对于一个数组，我们使用一个idx指向一个新的空位置。<br>就比如说，一个数组index为0 1 2 3 的地方都已经有数据了，此时idx为4,<br>表示如果你要再插入一个链表的话，就放在idx的地方。<br>所以，逻辑上是链表，但其实存储方式是线性的。<br>这也就是为什么叫他静态链表，或者是用数组去模拟链表。<br><br><br><br>单链表中，通常使用一个head初始化为-1，来表示头结点<br>而双向链表中，不会使用head，而是left和right，来表示链表的两头<br>初始化的时候，我们让left是第零个，right是第一个，然后idx自然就是2了。<br>再进行操作。<br><br><br>下为acwing<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/828/">单链表练习题</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">constexpr auto INF = 2100000000;</span><br><span class="line">constexpr auto INF64 = 1e18;</span><br><span class="line">const int N = 100010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line">int elem[N],ne[N]=&#123;-1&#125;, idx = 0;</span><br><span class="line">int head = -1;</span><br><span class="line"></span><br><span class="line">void headAdd(int x) &#123;</span><br><span class="line">    elem[idx] = x;</span><br><span class="line">    ne[idx] = head;</span><br><span class="line">    head = idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Add(int k, int x) &#123;</span><br><span class="line">    elem[idx] = x;</span><br><span class="line">    ne[idx] = ne[k];</span><br><span class="line">    ne[k] = idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void del(int k) &#123;</span><br><span class="line">    ne[k] = ne[ne[k]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    head = -1;</span><br><span class="line">    while (m--) &#123;</span><br><span class="line">        char a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        if (a == &#x27;H&#x27;) &#123;</span><br><span class="line">            int x;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            headAdd(x);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (a == &#x27;D&#x27;) &#123;</span><br><span class="line">            int k;</span><br><span class="line">            cin &gt;&gt; k;</span><br><span class="line">            if(k==0)&#123;</span><br><span class="line">                head=ne[head];</span><br><span class="line">            &#125;</span><br><span class="line">            else del(k-1);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            int k, x;</span><br><span class="line">            cin &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            Add(k-1, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = head; i != -1; i = ne[i]) &#123;</span><br><span class="line">        cout &lt;&lt; elem[i] &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里要注意一个地方捏。<br>对于第k个插入的节点，下标他是从1，开始的<br>而我们存储数据是从零开始的，所以有关的地方要注意k-1.<br><br><br></p>
-<p>下为acwing<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/829/">双向链表练习题</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">constexpr auto INF = 2100000000;</span><br><span class="line">constexpr long long INF64 = 1e18;</span><br><span class="line">const int N = 100010;</span><br><span class="line">typedef pair&lt;int, int&gt; PII;</span><br><span class="line">int elem[N],l[N],r[N], idx = 0;</span><br><span class="line"></span><br><span class="line">void Add(int k, int x) &#123;</span><br><span class="line">    elem[idx] = x;</span><br><span class="line">    r[idx] = r[k];</span><br><span class="line">    l[idx] = k;</span><br><span class="line">    l[r[k]] = idx;</span><br><span class="line">    r[k] = idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void del(int k) &#123;</span><br><span class="line">    r[l[k]] = r[k];</span><br><span class="line">    l[r[k]] = l[k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    r[0] = 1;</span><br><span class="line">    l[1] = 0;</span><br><span class="line">    idx = 2;</span><br><span class="line">    while (m--) &#123;</span><br><span class="line">        string a;</span><br><span class="line">        int k,x;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        if (a[0] == &#x27;L&#x27;) &#123;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            Add(0, x);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (a[0] == &#x27;R&#x27;) &#123;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            Add(l[1], x);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (a[0] == &#x27;D&#x27;) &#123;</span><br><span class="line">            cin &gt;&gt; k;</span><br><span class="line">            del(k+1);</span><br><span class="line">        &#125;</span><br><span class="line">        else if (a == &quot;IL&quot;) &#123;</span><br><span class="line">            cin &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            Add(l[k+1], x);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            cin &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            Add(k+1, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = r[0];i!=1; i = r[i]) &#123;</span><br><span class="line">        cout &lt;&lt; elem[i] &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>同样需要注意的是<br>这里因为我们初始化的时候，index0 和1已经被用掉了<br>idx=2,<br>与他的第k个插入，多了个1,<br>所以进行有关操作的时候<br>需要注意是k+1。<br>这两节的话，感觉比较重要的就是这个知识点了。</p>
-<hr>
-<p>That’s all<br>bye~</p>
-
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Ausert
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="http://ausertdream.github.io/2022/11/12/ACM学习笔记day7/" title="ACM学习笔记day7(区间合并，静态单链表，静态双向链表)" target="_blank">http://ausertdream.github.io/2022/11/12/ACM学习笔记day7/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          网页作者：Ausert  主题作者：yilia
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -267,120 +201,31 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/12/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day7/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2022/11/15/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ACM学习笔记day8(模拟栈，表达式求值，模拟队列，单调栈)
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ACM学习笔记day6(离散化)</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -409,9 +254,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

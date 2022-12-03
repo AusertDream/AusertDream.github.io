@@ -150,6 +150,205 @@
             
 
   
+    <article id="post-ACM学习笔记day16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/03/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day16/" target="_blank">ACM学习笔记day16</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/03/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day16/" class="archive-article-date">
+        <time datetime="2022-12-03T13:32:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-03</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/03/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day16/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-ACM学习笔记day15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/02/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day15/" target="_blank">ACM学习笔记day15(哈希，字符串的哈希)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/02/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day15/" class="archive-article-date">
+        <time datetime="2022-12-02T12:15:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>hello guys！<br>今天的学习内容是哈希表，也就是散列表<br>对应acwing上的<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/842/">模拟散列表</a>和<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/843/">字符串哈希</a></p>
+<p>那么问题来了<br>什么是哈希表呢？<br>一句话来总结就是，不保序的离散化<br>离散化其实是哈希化的一种特殊情况<br>我们将数据范围很大的，较少的数字，映射到一个比较小的数组，这就是哈希，不过中间的那个映射值是哈希函数做的事情，也是导致他可能不保序的原因<br>一般的，我们将哈希函数定义为x取余给的数字的总数之后的最小的一个质数<br>比如给定10w个数字，100000之后的最小的一个质数是100003,那我们就将哈希函数定义为<br>x%100003,当然，我们一般讲N就初始化为100003，这样我们直接%N就可以了<br>然后我们接下来如果要找一个数x有没有，只要计算一下他的hash值，然后去哈希数组里面去找就可以了<br>没有就是没有<br>接下来，在计算哈希值的时候，容易产生的一个问题就是哈希冲突的问题<br>什么是哈希冲突？<br>就是明明是不同的两个数字，却存在了同一个地方，这就产生了问题。</p>
+<h2 id="哈希冲突"><a href="#哈希冲突" class="headerlink" title="哈希冲突"></a>哈希冲突</h2><p>防止哈希冲突的方法有两种，一种是拉链法<br>什么是拉链法？<br>但说实话我感觉他更应该叫吊带法，感觉不像拉链，像很多的丝带吊在上面<br>拉链法中，我们使用一个h[N]来作为杆子，h的值是指针，指向等会使用的链表节点<br>然后我们使用一个链表ele[N],和ne[N]来维护杆子上n个口子可能产生的n个链表<br>h[hash[i]],h数组的下标是我们加入进来的数字的hash值，我们加入进来的输入存入链表当中<br>然后我们每插入一个数字，就相当于在以h[hash[i]]为头结点的表头插入一个元素。<br>这样我们就用拉链法解决了hash冲突的问题，在平均情况下，我们可以认为哈希的存储和访问都是O（1）的<br>当然极端情况下，比如每个数字的存入都是冲突的，导致查询一个数字是O(n)的，这种情况太极端了，我们一般不考虑<br>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N =100003;</span><br><span class="line">int ele[N],ne[N],idx;</span><br><span class="line">vector&lt;int&gt; h(N,-1);</span><br><span class="line"></span><br><span class="line">void insert(int x)&#123;</span><br><span class="line">    int k=(x%N+N)%N;</span><br><span class="line">    ele[idx]=x;</span><br><span class="line">    ne[idx]=h[k];</span><br><span class="line">    h[k]=idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool find(int x)&#123;</span><br><span class="line">    int k=(x%N+N)%N;</span><br><span class="line">    for(int i=h[k];i!=-1;i=ne[i])&#123;</span><br><span class="line">        if(ele[i]==x)&#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        string s;</span><br><span class="line">        cin&gt;&gt;s;</span><br><span class="line">        if(s==&quot;I&quot;)&#123;</span><br><span class="line">            int x;</span><br><span class="line">            cin&gt;&gt;x;</span><br><span class="line">            insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            int x;</span><br><span class="line">            cin&gt;&gt;x;</span><br><span class="line">            if(find(x))&#123;</span><br><span class="line">                cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种是开放寻址法<br>什么是开放寻址法呢？<br>感觉就是向你去上厕所，你要上的这个坑位，有人了<br>那就去下一个，如果还是有人了，继续去下一个<br>直到到一个空位，然后数据存进去<br>这就是开放寻址法<br>开放寻址法不像拉链法需要额外开两个数组，作为链表来存储数据<br>但是开放寻址法需要注意的是，存储数据的长度需要大一点，一般是给的数据量最大的两到三倍。<br>同时我们需要的注意的是，我们一开始的时候要初始化数据为null，null为一个极大值，可以取成int的上界<br>我们用null来表示这个位置为空，但是我觉得应该另外开一个数组来表示是否为空应该也可以，不过这样的话<br>开放寻址法也要再开一个数组了，就不能体现出他的一个特点了awa<br>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 200003, null=0x3f3f3f3f;</span><br><span class="line">int h[N];</span><br><span class="line"></span><br><span class="line">int find (int x)&#123;</span><br><span class="line">    int k=(x%N+N)%N;</span><br><span class="line">    while(h[k]!=x&amp;&amp;h[k]!=null)&#123;</span><br><span class="line">        k++;</span><br><span class="line">        if(k==N)&#123;</span><br><span class="line">            k=0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    for(int i=0;i&lt;N;i++)&#123;</span><br><span class="line">        h[i]=null;</span><br><span class="line">    &#125;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        string str;</span><br><span class="line">        cin&gt;&gt;str;</span><br><span class="line">        int x;</span><br><span class="line">        cin&gt;&gt;x;</span><br><span class="line">        int t=find(x);</span><br><span class="line">        if(str==&quot;I&quot;)&#123;</span><br><span class="line">            h[t]=x;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            if(h[t]==null)&#123;</span><br><span class="line">                cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来是字符串的哈希<br>这个就有点难理解了<br>比之前那个普通的哈希要稍微难一点<br>但是实际写起来的代码量还是很少的<br>所以关键就在于如何理解字符串哈希</p>
+<h2 id="字符串哈希"><a href="#字符串哈希" class="headerlink" title="字符串哈希"></a>字符串哈希</h2><p>什么是字符串的哈希？<br>顾名思义嗷<br>其实就是让一个字符串对应一个数值，这个数值我们就定义为他的哈希值<br>而这个数值怎么来的，就是我们的哈希函数<br>首先我们为了能够在O(1)的时间内求出一段字符串任意一段子串的哈希值，我们要预处理一下给定字符串<br>也就是求一下给定字符串的前缀的哈希值<br>然后运用前缀和的理论，来快速的求出任意一段的哈希值<br>当然我们要说一个哈希冲突的问题，字符串哈希也是可能哈希冲突的<br>但是这个概率很小，基本上99.99%的时候都不用考虑字符串哈希冲突的问题<br>如果真冲突了，额，那也不是我能做出来的（<br>所以字符串哈希和一般的哈希不太一样，他不用考虑哈希冲突的问题，当然这不是说他不可能发生啊<br>好<br>我们回到刚才那个问题上来，首先我们抛出两个问题<br>怎么求前缀和的哈希值<br>以及怎么通过前缀和去求任意一段字符串的哈希值<br>这里我们的哈希手法是：</p>
+<blockquote>
+<p>把字符串看成是一个P进制的数字，位数从左往右越来越低，然后使用每一位字母的ASCII码值作为该位对应的值<br>一般的，我们取P为131或者13331，这样的话，产生哈希冲突的概率最小，<br>同时我们产生了一个新的问题，就是我们按照P进制，把字符串转化为哈希值之后，产生的数字可能会很大，那么我们就取模2^64，将结果限定在longlong的范围内<br>为了避免，我们要写%2^64这样的操作，我们使用unsigned long long，这个类型，当数据越界了之后，他会自动取模，可以让我们省略取模的动作</p>
+</blockquote>
+<p>字符串前缀的哈希值是多少我们解决了，<br>那么如何求任意一段的哈希值呢？<br>比如l~r的这一段的哈希值<br>很简单，我们把h[r]按照P进制写出来，h[l-1]按照P进制写出来<br>不难发现，我们要求的一段的字符串的哈希值，是同样按照P进制转化为10进制化出来的<br>那么我们只要把h[l-1]按照p进制左移直到左对齐，然后h[r]-h[l-1]即可得到结果<br>因为大的那个是r位的<br>小的那个是l-1位的<br>所以要移动的位数为r-l+1位<br>即h[l-1]*p^(r-l+1);<br>综上，我们字符串哈希的很多问题已近解决了<br>代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef unsigned long long ULL;</span><br><span class="line">const int N = 100010, P =131;</span><br><span class="line">int n,m;</span><br><span class="line">string s;</span><br><span class="line">ULL h[N],p[N];</span><br><span class="line"></span><br><span class="line">ULL get(int l,int r)&#123;</span><br><span class="line">    return h[r]-h[l-1]*p[r-l+1];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    s+=&quot; &quot;;</span><br><span class="line">    string str;</span><br><span class="line">    cin&gt;&gt;str;</span><br><span class="line">    s+=str;</span><br><span class="line">    p[0]=1;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        p[i]=p[i-1]*P;</span><br><span class="line">        h[i]=h[i-1]*P+s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        int l1,r1,l2,r2;</span><br><span class="line">        cin&gt;&gt;l1&gt;&gt;r1&gt;&gt;l2&gt;&gt;r2;</span><br><span class="line">        if(get(l1,r1)==get(l2,r2))&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OK That’s all<br>我们下次再见~<br>Bye~</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">哈希表</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/02/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day15/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ACM学习笔记day14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -292,8 +491,10 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>今天的内容是求连通块中点的数量</p>
-<h2 id="求连通块中点的数量"><a href="#求连通块中点的数量" class="headerlink" title="求连通块中点的数量"></a>求连通块中点的数量</h2><p>这题和并查集那道模板题差不多<br>就是多了一个要求<br>让你统计集合中的数量而已<br>这里我们用到一个cnt数组，同时我们规定，只有根节点的cnt数据是有意义的<br>这样我们就避免了要给多个同连通块的集合重新赋值的麻烦</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 100010;</span><br><span class="line">int p[N],cnt[N];</span><br><span class="line">int n,m;</span><br><span class="line"></span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    if(p[x]!=x)&#123;</span><br><span class="line">        p[x]=find(p[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    return p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        p[i]=i;</span><br><span class="line">        cnt[i]=1; //一开始每一个连通块中都只有一个点</span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        string op;</span><br><span class="line">        cin&gt;&gt;op;</span><br><span class="line">        if(op==&quot;C&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b)) continue; //这里特判一下，如果a和b已经在同一个连通块里面了，不需要在加啥了，不然会将值翻倍导致WA</span><br><span class="line">            cnt[find(b)]+=cnt[find(a)];//新的树的cnt个数也就是原来的加上另外一个的cnt值</span><br><span class="line">            p[find(a)]=find(b); //这里cnt改变要先进行，不然find(a)的值会被改变，也就会导致cnt计数错误</span><br><span class="line">        &#125;</span><br><span class="line">        else if(op==&quot;Q1&quot;)&#123;</span><br><span class="line">            int a,b;</span><br><span class="line">            cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            if(find(a)==find(b))&#123;</span><br><span class="line">                cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            int a;</span><br><span class="line">            cin&gt;&gt;a;</span><br><span class="line">            cout&lt;&lt;cnt[find(a)]&lt;&lt;endl;//要就输出结果的话，就直接输出a的根节点的cnt的值就可以了</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="求连通块中点的数量"><a href="#求连通块中点的数量" class="headerlink" title="求连通块中点的数量"></a>求连通块中点的数量</h2><p>这题和并查集那道模板题差不多<br>就是多了一个要求<br>让你统计集合中的数量而已</p>
+    
+    <a class="article-more-a" href="/2022/11/25/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day13/#more">more >></a>
+    
     
 
     
@@ -1001,222 +1202,6 @@
 
 
   
-    <article id="post-ACM学习笔记day6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" target="_blank">ACM学习笔记day6(离散化)</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/" class="archive-article-date">
-        <time datetime="2022-11-10T13:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>其实这一节，应该是day5里面的，因为呃呃呃<br>我看到这一节acwing里面的视频长度比较长，所以我就分割出来<br>作为单独的一个blog来写了。<br>算法的思想比较重要。</p>
-    
-    <a class="article-more-a" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">离散化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ACM学习笔记day5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" target="_blank">ACM学习笔记day5(双指针，位运算)</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/" class="archive-article-date">
-        <time datetime="2022-11-10T09:25:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今天学习了一下双指针算法，感觉还是挺难的。<br>就是一个由单调性可以推出应该用双指针这个有点不是很能理解。QAQ<br>还有个位运算。</p>
-    
-    <a class="article-more-a" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/10/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1366,6 +1351,22 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">哈希表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Trie树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">带权并查集</a>
               </li>
              
@@ -1374,15 +1375,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Trie树</a>
+                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">打卡（大概）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1395,22 +1392,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">知识点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">胡思乱想</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1427,6 +1408,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网站维护</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">胡思乱想</a>
               </li>
             
             <div class="clearfix"></div>
