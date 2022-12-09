@@ -6,24 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ausertdream.github.io">
-  <title>casualNotes | Ausert&#39;s blog</title>
+  <title>ACM学习笔记day17(floyd算法求多源最短路) | Ausert&#39;s blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="2022年11月8日 晴 周二新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。说起来我今天的视频还没发幸亏之前屯了很多存货orz不然事情还要多。蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课呃呃呃，害，好烦QAQ。">
+  <meta name="description" content="额，距离上次写ACM笔记好像已经过了很久了其实这是有原因(借口)的，在被模电折磨捏~好了，不多bb了今天学习的内容是Floyd算法求多源最短路。这个算法写起来东西很少，同时也比较简单，从整体上去理解的话，感觉还是不难理解的运用的思想就是DP的思想">
 <meta property="og:type" content="article">
-<meta property="og:title" content="casualNotes">
-<meta property="og:url" content="http://ausertdream.github.io/2022/11/08/casualNotes/index.html">
+<meta property="og:title" content="ACM学习笔记day17(floyd算法求多源最短路)">
+<meta property="og:url" content="http://ausertdream.github.io/2022/12/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day17/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="2022年11月8日 晴 周二新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。说起来我今天的视频还没发幸亏之前屯了很多存货orz不然事情还要多。蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课呃呃呃，害，好烦QAQ。">
+<meta property="og:description" content="额，距离上次写ACM笔记好像已经过了很久了其实这是有原因(借口)的，在被模电折磨捏~好了，不多bb了今天学习的内容是Floyd算法求多源最短路。这个算法写起来东西很少，同时也比较简单，从整体上去理解的话，感觉还是不难理解的运用的思想就是DP的思想">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-08T04:02:06.000Z">
-<meta property="article:modified_time" content="2022-11-15T14:10:48.784Z">
+<meta property="article:published_time" content="2022-12-09T14:20:36.000Z">
+<meta property="article:modified_time" content="2022-12-09T14:56:30.239Z">
 <meta property="article:author" content="Ausert">
+<meta property="article:tag" content="ACM">
 <meta property="article:tag" content="打卡">
-<meta property="article:tag" content="日记">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="胡思乱想">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="Floyd">
+<meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ausert&#39;s blog" type="application/atom+xml">
@@ -154,22 +157,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-casualNotes" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ACM学习笔记day17" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      casualNotes
+      ACM学习笔记day17(floyd算法求多源最短路)
     </h1>
   
 
 
   
   
-<a href="/2022/11/08/casualNotes/" class="archive-article-date">
-        <time datetime="2022-11-08T04:02:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-08</time>
+<a href="/2022/12/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day17/" class="archive-article-date">
+        <time datetime="2022-12-09T14:20:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-09</time>
 </a>
 
   
@@ -182,7 +185,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">199字</span>
+      <span class="post-count">625字</span>
     </span>
   </span>
 
@@ -191,7 +194,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -202,11 +205,15 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="2022年11月8日-晴-周二"><a href="#2022年11月8日-晴-周二" class="headerlink" title="2022年11月8日 晴 周二"></a>2022年11月8日 晴 周二</h2><p>新的一周开始了，每次一到周一周二就格外的忙捏，各种事情，害。<br><br>说起来我今天的视频还没发<br><br>幸亏之前屯了很多存货orz<br><br>不然事情还要多。<br><br>蛮讨厌的一个点是，居然没办法每天都去看一下acwing的课<br><br>呃呃呃，害，好烦QAQ。<br></p>
+    <p>额，距离上次写ACM笔记好像已经过了很久了<br>其实这是有原因(<del>借口</del>)的，在被模电折磨捏~<br>好了，不多bb了<br>今天学习的内容是Floyd算法求多源最短路。<br>这个算法写起来东西很少，同时也比较简单，从整体上去理解的话，感觉还是不难理解的<br>运用的思想就是DP的思想</p>
 <span id="more"></span>
 
+<p>直接上代码吧，思想是dp的思想，但是实际操作起来，只有三重嵌套循环，然后不断的用</p>
+<p>` d[i][j]=min(d[i][j],d[i][k]+d[k][j]);</p>
+<p>这个来更新距离，注意在floyd算法中，我们直接将用来存储图信息的领接矩阵作为最终的结果距离矩阵<br>下面为acwing上对应的floyd算法的<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/856/">题目</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 210;</span><br><span class="line">const int INF = 1e9;//这里这题INF的值不能太大也不能太小，太大了不知道为啥结果溢出了，太小的话，可能会没有路的长度长，起不到无穷的作用</span><br><span class="line">int d[N][N];</span><br><span class="line">int n,m,k;</span><br><span class="line">void floyd()&#123;</span><br><span class="line">    //三重嵌套循环，其中k必须在最外面</span><br><span class="line">    //DP的状态转移方程为d[k][i][j]=min(d[k-1][i][k]+d[k-1][k][j],d[k][i][j]);</span><br><span class="line">    //当然这里这个k可以优化掉，额，这就具体涉及DP里面的东西了</span><br><span class="line">    //dp的东西我们之后再说吧</span><br><span class="line">    for(int k=1;k&lt;=n;k++)&#123;</span><br><span class="line">        for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">            for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">                d[i][j]=min(d[i][j],d[i][k]+d[k][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">        for(int j=1;j&lt;=n;j++)&#123;</span><br><span class="line">            if(i==j)&#123;</span><br><span class="line">                d[i][j]==0;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                d[i][j]=INF;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(m--)&#123;</span><br><span class="line">        int x,y,z;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        d[x][y]=min(d[x][y],z);</span><br><span class="line">    &#125;</span><br><span class="line">    floyd();</span><br><span class="line">    while(k--)&#123;</span><br><span class="line">        int x,y;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        //这里因为存在负权边，所以可能实际上两个节点不能到达的距离结果上来看可能小于INF，所以这里判断条件要改成距离是较大值，而不是INF</span><br><span class="line">        if(d[x][y]&gt;INF/2)&#123;</span><br><span class="line">            cout&lt;&lt;&quot;impossible&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cout&lt;&lt;d[x][y]&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2022年11月11日-多云潮湿-周五"><a href="#2022年11月11日-多云潮湿-周五" class="headerlink" title="2022年11月11日 多云潮湿 周五"></a>2022年11月11日 多云潮湿 周五</h2><p>呃呃呃，明天数学竞赛了，开摆！<br>今天晚上早点睡吧。<br>不过顺带看了看算法课接下来的内容<br>哇，爆率真的很高啊<br>内容贼多（<br>不知道一个寒假能不能看得完，后面还得要大规模的刷题的，感觉到明年的下半年来不及了<br>呃呃呃。<br>害，尽力吧QWQ<br>晚安~</p>
+<p>好了，这就是今天的所有内容了，怎么感觉有点水（<br>emmm，行吧，That’s all<br>明天还要考六级捏<br>Bye~</p>
 
     
 
@@ -221,7 +228,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://ausertdream.github.io/2022/11/08/casualNotes/" title="casualNotes" target="_blank">http://ausertdream.github.io/2022/11/08/casualNotes/</a>
+          <a href="http://ausertdream.github.io/2022/12/09/ACM学习笔记day17/" title="ACM学习笔记day17(floyd算法求多源最短路)" target="_blank">http://ausertdream.github.io/2022/12/09/ACM学习笔记day17/</a>
         </li>
         
         <li>
@@ -243,19 +250,31 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">胡思乱想</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Floyd</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">图论</a>
         		</li>
       		
 		</ul>
@@ -311,7 +330,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/11/08/casualNotes/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://ausertdream.github.io/2022/12/09/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day17/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -326,18 +345,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/11/08/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          ACM学习笔记day3(高精度四则运算)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/07/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ACM学习笔记day2</div>
+    <a href="/2022/12/03/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day16/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ACM学习笔记day16(朴素dijkstra求最短路径)</div>
       <i class="icon-circle-right"></i>
     </a>
   
