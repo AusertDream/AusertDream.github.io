@@ -155,6 +155,124 @@
             
 
   
+    <article id="post-题解-Codeforces-Round-837-div-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/12/12/%E9%A2%98%E8%A7%A3-Codeforces-Round-837-div-2/" target="_blank">题解-Codeforces-Round-837-div-2</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/12/12/%E9%A2%98%E8%A7%A3-Codeforces-Round-837-div-2/" class="archive-article-date">
+        <time datetime="2022-12-12T11:57:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-12</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。<br>下面这个做法真的十分的优雅。<br>代码很简洁，思路也很清楚。</p>
+<p><img src="https://raw.githubusercontent.com/AusertDream/MyblogImags/main/1.jpg" alt="1"></p>
+<p>B-Hossam and Friends</p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1771/problem/B">题目链接</a></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>一个人有n个朋友，按照1,2,3,4…，n的顺序。<br>现在他有m对数据，里面的每对数据表示这两个人互相不认识。<br>定义good segment：以l为左边界，r为右边界的一个segment(包括l和r)，如果里面的每个人都互相认识，那么我们就认为他是一个good segment<br>问你，这n个人中有多少个good segment。</p>
+<h2 id="题目思路："><a href="#题目思路：" class="headerlink" title="题目思路："></a>题目思路：</h2><p>这里呢，我们使用到了一个数组a，这个数组存放的不是1,2,3,4….这些朋友。<br>这个数组的含义，就是这个解法最妙的地方。<br>a[i]表示以左边界i的最大右边界+1。<br>什么意思呢，就比如说a[2]=5，就说明2~4这些人是互相认识的。<br>所以我们对于m次输入的x和y，表示x和y不认识，为了能够方便维护我们的数组<br>如果x&gt;y就让x和y swap一下。<br>然后让a[x]=min(a[x],y)即可，就这样维护了a[x]新的右边界，当然要去min值，因为有可能给的这个y是大于原来的那个的。<br>然后我们要继续维护一下这个a数组。<br>为什么呢？我们来看下面这一种特殊的情况。<br>我们得到如下的a数组</p>
+<blockquote>
+<p>a[i]: 1 2 3 4 5 6 7 8 9 100 99 65 43 65 47 100 ……<br>下标: 1 2 3 4 5 6 7 8 9 10  11 12 13 14 15  16</p>
+</blockquote>
+<p>不难发现，我们对于第12个人来说，最大good segment的右边界是65-1,但是第11个人的右边界却是99<br>65和12都不认识，那11~98这个区间里面，肯定是有人不认识的，也就不可能是good segment。<br>所以我们要根据他右边的那个数来更新自己。<br>因为a[i]表示的值是最大右边界嘛。<br>同时要注意，更新的时候必须从右边开始更新，而不是左边<br>试想一下，对于10 11 12这三个数字，更新完之后，显然应该是43 43 43<br>但是如果从左边更新的话，就会变成99 65 43<br>显然这样是不对的。<br>理由也很简单，因为a[i]的值是右边界的最大值，每一个a[i]的值是否正确，都是依托于他右边的值的，所有我们要从右边开始更新<br>确保每次更新都是正确的。<br>更新完之后，我们让ans+=每一个a[i]-i即可，也就是以i为边界的最长good segment的长度。<br>下面为代码实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;			</span><br><span class="line">using namespace std;			</span><br><span class="line">constexpr int INF = 2100000000;	</span><br><span class="line">typedef long long ll;			</span><br><span class="line">typedef unsigned long long ULL;	</span><br><span class="line">constexpr ll INF64 = 1e18;		</span><br><span class="line">const int N = 100003;			</span><br><span class="line">typedef pair&lt;int, int&gt; PII;	</span><br><span class="line">#define mysort(a) sort(a.begin(),a.end());</span><br><span class="line">#define mysort(a,n) sort(a,a+n);</span><br><span class="line">int n, m;</span><br><span class="line">int a[N];</span><br><span class="line"></span><br><span class="line">void solve() &#123;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">		a[i] = n + 1;</span><br><span class="line">	&#125;</span><br><span class="line">	while (m--) &#123;</span><br><span class="line">		int x, y;</span><br><span class="line">		cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">		if (x &gt; y) &#123;</span><br><span class="line">			swap(x, y);</span><br><span class="line">		&#125;</span><br><span class="line">		a[x] = min(a[x], y);</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i = n - 1; i &gt;= 1; i--) &#123;</span><br><span class="line">		a[i] = min(a[i], a[i + 1]);</span><br><span class="line">	&#125;</span><br><span class="line">	ll ans = 0;</span><br><span class="line">	for (int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">		ans += a[i] - i;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">								</span><br><span class="line"></span><br><span class="line">								</span><br><span class="line">								</span><br><span class="line">								</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	ios::sync_with_stdio(false);</span><br><span class="line">	cin.tie(0);					 </span><br><span class="line">	int t;							</span><br><span class="line">	cin &gt;&gt; t;						</span><br><span class="line">	while (t--)						</span><br><span class="line">	&#123;								</span><br><span class="line">		solve();					</span><br><span class="line">	&#125;								</span><br><span class="line">	return 0;</span><br><span class="line">&#125;				</span><br></pre></td></tr></table></figure>
+
+<p>先这样吧，如果后面的C我干出来了，或者是有很优美的算法解决问题的话，我也会更新在博客里面。<br>Bye~</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">题解</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/12/12/%E9%A2%98%E8%A7%A3-Codeforces-Round-837-div-2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ACM学习笔记day19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1141,114 +1259,6 @@
 
 
   
-    <article id="post-ACM学习笔记day12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" target="_blank">ACM学习笔记day12(最大异或对，并查集)</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/" class="archive-article-date">
-        <time datetime="2022-11-24T14:50:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>今天的内容是Trie树的应用和并查集的学习。<br>这个<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/145/">最大异或对</a>的话，就是Trie树的应用，然后有别于之前那个Trie树<br>存的数据不一样，之前那个存的是char，现在这个存的是0和1。<br>然后<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/838/">并查集</a>的话<br>感觉就是构建了一个森林，然后每一颗树代表了一定的信息。</p>
-    
-    <a class="article-more-a" href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">打卡</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">并查集</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Trie树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/24/ACM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0day12/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1418,6 +1428,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dijkstra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Floyd</a>
               </li>
              
@@ -1430,14 +1448,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">蒟蒻</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dijkstra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">N皇后</a>
               </li>
              
@@ -1446,11 +1456,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
+                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双指针</a>
+                <a href="javascript:void(0)" class="js-tag color4">离散化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1507,6 +1517,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图床</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">题解</a>
               </li>
             
             <div class="clearfix"></div>
