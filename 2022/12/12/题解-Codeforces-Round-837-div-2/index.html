@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。下面这个做法真的十分的优雅。代码很简洁，思路也很清楚。  B-Hossam and Friends 题目链接 题目描述：一个人有n个朋友，按照1,2,3,4…，n的顺序。现在他有m对数据，里面的每对数据表示这两个人互相不认识。定义good segment：以l为左边界，r为右边界">
+  <meta name="description" content="蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。下面这个做法真的十分的优雅。代码很简洁，思路也很清楚。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="题解-Codeforces-Round-837-div-2">
 <meta property="og:url" content="http://ausertdream.github.io/2022/12/12/%E9%A2%98%E8%A7%A3-Codeforces-Round-837-div-2/index.html">
 <meta property="og:site_name" content="Ausert&#39;s blog">
-<meta property="og:description" content="蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。下面这个做法真的十分的优雅。代码很简洁，思路也很清楚。  B-Hossam and Friends 题目链接 题目描述：一个人有n个朋友，按照1,2,3,4…，n的顺序。现在他有m对数据，里面的每对数据表示这两个人互相不认识。定义good segment：以l为左边界，r为右边界">
+<meta property="og:description" content="蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。下面这个做法真的十分的优雅。代码很简洁，思路也很清楚。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/AusertDream/MyblogImags/main/1.jpg">
 <meta property="article:published_time" content="2022-12-12T11:57:48.000Z">
-<meta property="article:modified_time" content="2022-12-12T12:30:37.465Z">
+<meta property="article:modified_time" content="2022-12-12T12:38:10.358Z">
 <meta property="article:author" content="Ausert">
 <meta property="article:tag" content="ACM">
 <meta property="article:tag" content="学习">
@@ -208,6 +208,8 @@
     
     <p>蒟蒻又日常来尝试div2了，这次独立（额，算独立吗）做出来的只有A，B还是问了别人才做出来的，接下里的这个就是B的题解。<br>下面这个做法真的十分的优雅。<br>代码很简洁，思路也很清楚。</p>
 <p><img src="https://raw.githubusercontent.com/AusertDream/MyblogImags/main/1.jpg" alt="1"></p>
+<span id="more"></span>
+
 <p>B-Hossam and Friends</p>
 <p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1771/problem/B">题目链接</a></p>
 <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>一个人有n个朋友，按照1,2,3,4…，n的顺序。<br>现在他有m对数据，里面的每对数据表示这两个人互相不认识。<br>定义good segment：以l为左边界，r为右边界的一个segment(包括l和r)，如果里面的每个人都互相认识，那么我们就认为他是一个good segment<br>问你，这n个人中有多少个good segment。</p>
@@ -554,15 +556,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Floyd</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">图论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dfs</a>
               </li>
              
               <li class="article-tag-list-item">
