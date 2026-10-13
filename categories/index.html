@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head><!-- hexo injector head_begin start --><meta name="description" content="like science"><meta name="keywords" content="blog, ACM, algorithm"><meta name="author" content="Ausert"><!-- hexo injector head_begin end -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>Ausert&#39;s blog</title>
+    <script>window.__AURORA__={root:"/",darkMode:"false"}</script>
+    <script>
+      // 首屏配色在样式加载前确定，避免深色模式下先闪一下白屏
+      ;(function () {
+        var boot = window.__AURORA__ || {}
+        var saved = null
+        try { saved = localStorage.getItem('aurora-theme') } catch (e) {}
+        var pref = String(boot.darkMode || 'auto')
+        var dark = saved
+          ? saved === 'dark'
+          : pref === 'true' || (pref === 'auto' && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-B-DNJvnH.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-bfjvv0Hp.css">
+  <!-- hexo injector head_end start --><link rel="stylesheet" href="/lib/katex/katex.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <noscript>这个博客需要启用 JavaScript 才能正常浏览。</noscript>
+    <div id="app"></div>
+  </body>
+</html>
