@@ -1,0 +1,44 @@
+/* Aurora 1.5.5 样式修复，由 scripts/aurora-fixes.js 注入到 <head> */
+
+/* 看板娘的气泡隐藏时只是 opacity: 0，仍然会拦截左下角区域的点击 */
+#Aurora-Dia--tips-wrapper {
+  pointer-events: none;
+}
+
+/* 文章头部的标签：inline-flex 不换行，窄屏下每个标签被压成一个字一行 */
+.post-labels ul {
+  flex-wrap: wrap;
+  row-gap: 0.25rem;
+}
+.post-labels ul li {
+  white-space: nowrap;
+}
+
+/* 手机端首页：推荐区的标题卡片固定 14rem 高，只有几个字却占掉大半屏 */
+@media (max-width: 1023.98px) {
+  #feature .inverted-main-grid > :first-child {
+    height: auto;
+  }
+  #feature .inverted-main-grid > :first-child .ob-gradient-plate {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  #feature .inverted-main-grid > :first-child h2 {
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* 公式：长公式在窄屏下横向滚动，而不是撑破正文 */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}
+
+/* 加粗文字是渐变色（文字本身透明、靠背景裁剪显示），KaTeX 的嵌套结构会因此整个透明，改用实色 */
+.post-html strong .katex {
+  color: #7aa2f7;
+  -webkit-text-fill-color: #7aa2f7;
+}
